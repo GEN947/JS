@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        #target {
+            height: 100px; width: 100px; background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="target">
+    </div>
+    <button id="circle">원</button>
+    <button id="rect" disabled>사각형</button>
+    <script>
+        // 버튼을 클릭하면 border-radius를 100px로,
+        // 배경색은 blue로
+        // $('#circle').on('click', function() {
+        //     $('#target').css('border-radius','100px')
+        //         .css('background-color', 'blue');
+        // });
+        // $('#rect').on('click', function() {
+        //     $('#target').css('border-radius','0px')
+        //         .css('background-color', 'red');
+        // });
+
+        let $circle = $('#circle');
+        let $rect = $('#rect');
+        $circle.on('click', function() {
+            $('#target').css('border-radius','100px')
+                .css('background-color', 'blue');
+            $circle.attr('disabled', true);
+            $rect.attr('disabled', false);
+        });
+        $rect.on('click', function() {
+            $('#target').css('border-radius','0px')
+                .css('background-color', 'red');
+            $circle.attr('disabled', false);
+            $rect.attr('disabled', true);
+        });
+    </script>
+</body>
+</html>

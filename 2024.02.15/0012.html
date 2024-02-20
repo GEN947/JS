@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        #canvus {
+            height: 300px; width: 300px; border: 1px solid red;
+        }
+        #target {
+            position: absolute;
+            top: 100;
+            left: 100;
+        }
+    </style>
+</head>
+<body>
+    <h1>마우스 좌표 출력</h1>
+    <div id="canvus"></div>
+    <div id="target"></div>
+    <script>
+        // #canvus에서 움직이는 마우스의 좌표를 출력
+        let $canvus = $('#canvus');
+        let $target = $('#target');
+        
+        $canvus.on('mousemove', function(e) {
+            let x = e.pageX;
+            let y = e.pageY;
+            // x좌표:342, y좌표:125
+            let str = `x좌표: ${x}, y좌표: ${y}`;
+            $target.text(str);
+        });
+
+        // 클릭했을 때 알림 띄우기
+        $canvus.on('click', function() {
+            alert('클릭했습니다!');
+        });
+    </script>
+</body>
+</html>

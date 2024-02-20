@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- dispalay: block, inline, inline-block, none -->
+    <p id="target">우리나라 좋은나라</p>
+    <p id="">XXXX XXXX</p>
+    <button id="none">사라지게</button>
+    <button id="yes">나타나게</button>
+    
+    <script>
+        $('#yes').attr('disabled', true);
+        $('#none').on('click', function() {
+            $('#target').css('display', 'none');
+            $('#yes').attr('disabled', false)
+            $('#none').attr('disabled', true);
+        });
+        
+        $('#yes').on('click', function() {
+            $('#target').css('display', 'block');
+            $('#yes').attr('disabled', true)
+            $('#none').attr('disabled', false);
+        });
+    </script>
+</body>
+</html>

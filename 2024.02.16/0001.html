@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <p id="target">들어와</p>
+    <button id="btn">지우기</button>
+    <script>
+        // 버튼을 클릭하면 p 태그를 지우시오
+        // display 속성을 none으로 준다 -> css
+        let $target = $("#target");
+        let $btn = $("#btn");
+        
+        $btn.on('click', function() {
+            $target.css('display', 'none');
+            // display none은 p태그를 아예 지움(마진 같은걸 안 남김)
+            
+        })
+    </script>
+</body>
+</html>

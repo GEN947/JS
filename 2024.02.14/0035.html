@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        년도를 입력받아 경복궁 입장료를 출력하시오
+        입장료는 25세 이상 64세까지 3000원
+    -->
+    생년: <input type="number" id="birthyear">
+    <button onclick="fee();">입력</button>
+    <script>
+        function fee() {
+            let date = new Date();
+            let year = date.getFullYear();
+            let birthyear = $("#birthyear").val();
+            let age = year - birthyear;
+            if (age >= 20 && age <= 64) {
+                alert("3000원");
+            } else {
+                alert("무료");
+            }
+            // if (age < 20 || age > 64) {
+            //     alert("무료");
+            // }
+            // else{
+            //     alert("3000원");
+            // }
+        };
+    </script>
+</body>
+</html>

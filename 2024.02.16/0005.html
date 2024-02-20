@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 로그인 버튼이든 keyCode든 고쳐보기 -->
+    로그인 아이디: <input type="text" id="target"><br>
+    <button id="login">로그인</button>
+    <button id="good">추천</button>
+    <button id="bad">비추천</button>
+    <button id="delete">삭제</button>
+    <script>
+        let $good = $('#good');
+        let $bad = $('#bad');
+        let $delete = $('#delete');
+        let $target = $('#target');
+
+        let board = {
+            writer: 'spring',
+            loginId: ''
+        };
+
+        // $target.on('keyup', function(e) {
+        //     if(e.keyCode==13) {
+        //         board.loginId = $target.val();
+        //     }
+        // });
+        $target.on('click', function() {
+            board.loginId = $target.val();
+        })
+
+        // 게시판 작성자 loginId === writer
+        // 게시판 로그인 loginId !== writer 
+        // 게시판 비로그인 loginId = '' -> undefined, null일 수도
+        
+        if(board.loginId === '') {
+            $good.hide();
+            $bad.hide();
+            $delete.hide();
+        } else if(board.loginId === board.writer) {
+            $good.hide();
+            $bad.hide();
+        } else if(board.loginId !== board.writer) {
+            $delete.hide();
+        }
+    </script>
+</body>
+</html>
