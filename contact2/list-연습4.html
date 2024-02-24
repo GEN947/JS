@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+        // await ~ async로 변환하기
+        // 비동기 작업을 순서대로 실행하려면 -> 콜백지옥
+        // 콜백지옥을 해소하기 위해 등장한 개념 -> Promise + await + async
+        // Promise: 나중에 받아올 비동기코드의 결과값을 상징하는 객체
+        // await: Promise 의 값이 정해질 때까지 대기하라
+        // await을 실행하는 함수는 async라고 지정해야 한다
+
+        // 오류가 발생하면 실행을 중지하고 오류메시지를 찍어라
+        $(document).ready(async function() {
+            try {
+                // try로 코드르 감싼다
+                const result = await $.ajax('http://sample.bmaster.kro.kr/constacts');
+                console.log(result);
+            } catch(err) {
+                // try에서 오류가 발생하면 catch로 이동
+                // 오류 정보는 err객체에 들어있다
+                console.log(err);
+            }
+        })
+
+        /*
+        $.ajax({
+            작업 1
+            success:function() {
+                작업 2
+                $.ajax({
+                    작업 3
+                    success:function() {}
+                })
+            }
+        })
+        */
+    </script>
+    <style>
+        #pagination {
+            display: flex;
+            justify-items: center;
+        }
+    </style>
+</head>
+<body>
+    <table>        
+    </table>
+    <div id="pagination">
+        <ul id="pagination"></ul>
+    </div>
+</body>
+</html>

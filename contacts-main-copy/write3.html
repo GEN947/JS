@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>form submit과 ajax 동작 예시</title>
+    <script>
+        // 버튼을 form을 submit한다? 검증 후 전송
+        $(document).ready(function() {
+            $('#mvc').on('click', function(e) {
+                e.preventDefault();
+                const username = $('#username').val();
+                const pwd = $('#pwd').val();
+                if(username=='' || pwd=='') {
+                    alert('필수입력입니다');
+                    return;
+                };
+                $('#f1').submit();
+            });
+
+            $('#rest').on('click', function(e) {
+                e.preventDefault();
+                const username = $('#username').val();
+                const pwd = $('#pwd').val();
+                if(username=='' || pwd=='') {
+                    alert('필수입력입니다');
+                    return;
+                };
+                
+                const params = {
+                    username: $('#username').val(),
+                    pwd: $('#pwd').val()
+                };
+
+                $.ajax({
+                    url:'xxx',
+                    method:'post',
+                    data: params,
+                    success:function() {
+                        
+                    }
+                });
+            });
+        })
+    </script>
+</head>
+<body>
+    <form action="xxx" id="f1" method="post">
+        <input type="text" id="username" name="username">
+        <input type="password" id="pwd" name="pwd">
+        <button id="mvc">mvc로 보내기</button>
+        <button id="rest">rest로 보내기</button>
+    </form>
+</body>
+</html>

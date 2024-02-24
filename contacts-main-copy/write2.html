@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+        $(document).ready(function() {
+            $('#add').on('click', function(e) {
+                // 버튼이나 a와 2가지 동작을 가지는 요소의 두번쨰 동작(이동)을 막는다
+                e.preventDefault();
+                // return 해도 form을 submit 하기에 preventDefault()로 막는다
+
+                const title = $('#title').val();
+                if(title=='') {
+                    alert('제목을 입력해주세요');
+                    // return을 해도 form을 submit 한다
+                    return;
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <form action="서버주소" method="post" enctype="multipart/form-data">
+        <input type="text" name="title">
+        <button id="add"></button>
+    </form>
+</body>
+</html>
